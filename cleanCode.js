@@ -1,22 +1,22 @@
 var input = require('fs').readFileSync('entrada', 'utf8')
 var lines = input.split('\n')
 
-const t = +lines[0]
+const tests = +lines[0]
 
-for (let i = 1; i < t * 2; i = i + 2) {
-    let w = lines[i]
-    let n = +lines[i + 1]
-    let cW = ''
+for (let i = 1; i < tests * 2; i = i + 2) {
+    let word = lines[i]
+    let num = +lines[i + 1]
+    let completedWord = ''
 
-    for (let j = 0; j < w.length; j++) {
-        let cA = w[j].charCodeAt(0) - n
+    for (let j = 0; j < word.length; j++) {
+        let codeAt = word[j].charCodeAt(0) - num
 
-        if (cA < 65) {
-            let c = 65 - cA
-            cA = 91 - c
+        if (codeAt < 65) {
+            let conta = 65 - codeAt
+            codeAt = 91 - conta
         }
 
-        cW = cW + String.fromCharCode(cA)
+        completedWord = completedWord + String.fromCharCode(codeAt)
     }
-    console.log(cW)
+    console.log(completedWord)
 }
